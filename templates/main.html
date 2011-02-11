@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	<form id="enter" action="/chat/" method="POST">
+		<input type="text" value="NICKNAME" name="nick"></input>
+		<button type="submit">ENTER</button>
+		<p>{{error}}</p>
+	</form>
+
+{% endblock %}
