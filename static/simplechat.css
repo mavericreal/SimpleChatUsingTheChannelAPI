@@ -6,8 +6,9 @@ html{
 body{
 	width:100%;
 	height:100%;
-	background:#cdc;
+	background:#FFA900;
 	margin: 0;
+	font-family:Arial;
 }
 
 /* 	THE LANDING PAGE*/
@@ -34,15 +35,37 @@ body{
 }
 
 #enter p{
-	color:red;
+	color:#002BE3;
 	text-align:center;
 }
 
 /* THE CHAT */
 #top{
-	height:10%;
-	width:100%;
-	background:#cdd;
+    background: none repeat scroll 0 0 #FFA900;
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    height: 10%;
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+#top p{
+	margin:0;
+}
+
+#top span{
+ margin: 0 30px 0 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#top span a,#top span a:link,#top span a:visited{
+	color:white;
+	text-decoration:none;
+}
+#top span a:hover{
+	text-decoration:underline;
 }
 
 #center{
@@ -52,8 +75,48 @@ body{
 	overflow: auto;
 }
 
+.message{
+	color: #004599;
+	    min-height: 20px;
+	    padding: 10px 0;
+	    width: 100%;
+}
+
+.message span{
+	color: #444444;
+	    display: block;
+	    float: left;
+	    margin-left: 20px;
+}
+
+.message div {
+    float: left;
+    margin-left: 40px;
+}
+
 #bottom{
+	color:white;
 	height:10%;
 	width:100%;
-	background:#cdd;
+	background:#FFA900;
+	text-align: center;
+}
+
+#bottom span{
+	margin-right: 25px;
+}
+
+#bottom input{
+ font-size: 16px;
+    height: 35px;
+    margin: 0;
+    padding: 0;
+    width: 500px;
+}
+
+#bottom button{
+	height: 26px;
+	    margin-left: 15px;
+	    padding: 12px 55px !important;
+	    width: 90px;
 }

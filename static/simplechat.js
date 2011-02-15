@@ -22,6 +22,13 @@ $(document).ready(function(){
 		});
 	});
 	
+	$('#text').bind('keydown',function(e){
+		var code = (e.keyCode ? e.keyCode : e.which);
+		 if(code == 13) { //Enter keycode
+			$('#send').trigger('click');
+		 }
+	});
+	
 	var chat_token = $('#channel_api_params').attr('chat_token');
 	var channel = new goog.appengine.Channel(chat_token);
 	var socket = channel.open();
