@@ -22,6 +22,7 @@ class User(db.Model):
 class Message(db.Model):
 	text=db.StringProperty(default="")
 	user=db.ReferenceProperty(User)
+	date=db.DateTimeProperty(auto_now_add=True)
 	
 	
 class MainHandler(webapp.RequestHandler):
@@ -57,7 +58,7 @@ class ChatHandler(webapp.RequestHandler):
 		user = User(nick=nick,channel_id=channel_id)
 		user.put()
 		# obtain all the messages
-		messages=Message.all().fetch(1000)
+		messages=Message.all().order('date').fetch(1000)
 		# generate the template and answer back to the user
 		template_vars={'nick':nick,'messages':messages,'channel_id':channel_id,'chat_token':chat_token}
 		temp = os.path.join(os.path.dirname(__file__),'templates/chat.html')

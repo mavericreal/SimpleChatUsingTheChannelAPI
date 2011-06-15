@@ -36,7 +36,6 @@ $(document).ready(function(){
 	};
 	socket.onmessage = function(m){
 		var data = $.parseJSON(m.data);
-		console.log(data['html']);
 		$('#center').append(data['html']);
 		$('#center').animate({scrollTop: $("#center").attr("scrollHeight")}, 500);
 	};
@@ -46,6 +45,23 @@ $(document).ready(function(){
     socket.onclose =  function(){
 		alert("channel closed");
 	};
+	
+	$(window).unload(function (){
+		var channel_id = $('#channel_api_params').attr('channel_id');
+		$.ajax({
+			url: '/disconnect/',
+			type: 'POST',
+			data:{
+				channel_id:channel_id,
+			},
+			success: function(data){
+				$('#center').append(data);
+				$('#center').animate({scrollTop: $("#center").attr("scrollHeight")}, 500);
+			},complete:function(){
+				
+			}
+		});
+	});
 	
 	
 	$('#center').animate({scrollTop: $("#center").attr("scrollHeight")}, 500);
