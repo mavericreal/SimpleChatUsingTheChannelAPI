@@ -48,19 +48,11 @@ $(document).ready(function(){
 	
 	$(window).unload(function (){
 		var channel_id = $('#channel_api_params').attr('channel_id');
-		$.ajax({
-			url: '/disconnect/',
-			type: 'POST',
-			data:{
-				channel_id:channel_id,
-			},
-			success: function(data){
-				$('#center').append(data);
-				$('#center').animate({scrollTop: $("#center").attr("scrollHeight")}, 500);
-			},complete:function(){
-				
-			}
-		});
+                $.post('/disconnect/', {channel_id:channel_id},
+                    function(data) {
+                        $('#center').append(data);
+                        $('#center').animate({scrollTop: $("#center").attr("scrollHeight")}, 500);
+                });
 	});
 	
 	
